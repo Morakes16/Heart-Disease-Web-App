@@ -2,16 +2,16 @@ import numpy as np
 import pickle
 import streamlit as st
 
-"Loading the saved model"
+#Loading the saved model
 loaded_model = pickle.load(open('C:/Users/Moreme/Documents/Eduvos/ITDAA/Assignments/Heart Disease Predictor', 'rb'))
 
-"Creating a function for prediction"
+#Creating a function for prediction
 def heart_disease_prediction(input_data):
 
-    "Changing the input data to numpy array"
+    #Changing the input data to numpy array
     input_data_as_numpy_array = np.asarray(input_data)
 
-    "Reshaping the array as we are predicting for one instance"
+    #Reshaping the array as we are predicting for one instance
     input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
 
     prediction = loaded_model.predict(input_data_reshaped)
@@ -25,10 +25,10 @@ def heart_disease_prediction(input_data):
     
 def main():
     
-    "Giving a titile for the web page"
+    #Giving a titile for the web page
     st.title('Heart Disease Prediction Web App')
     
-    "Getting the input data from the user"
+    #Getting the input data from the user
     
     age = st.text_input('What is your Age?')
     
@@ -45,15 +45,15 @@ def main():
     thalach = st.text_input('What is the patients achieved Maximum Heart Rate?')
     
     
-    "Code for prediction"
+    #Code for prediction
     diagnosis = ''
     
-    "Creating a button for prediction"
+    #Creating a button for prediction
     if st.button('Generate Result'):
         diagnosis = heart_disease_prediction([age, sex, cp, trestbps, chol, fbs, thalach])
         
-    
-    st.successful(diagnosis)
+    st.success(diagnosis)
+
     
     
     
