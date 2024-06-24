@@ -3,7 +3,7 @@ import pickle
 import streamlit as st
 
 #Loading the saved model
-loaded_model = pickle.load(open('Morakes16/Heart-Disease-Web-App/Heart Disease Predictor', 'rb'))
+loaded_model = pickle.load(open('Morakes16/Heart-Disease-Web-App/blob/main/Heart Disease Predictor', 'rb'))
 
 #Creating a function for prediction
 def heart_disease_prediction(input_data):
